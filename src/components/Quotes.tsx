@@ -28,8 +28,16 @@ const Quotes = () => {
             author: ""
         },
         {
-            text: "Simplicity is the soul of efficiency",
-            author: "Austin Freeman"
+            text: "If everything was achieved, what would we desire ?",
+            author: ""
+        },
+        {
+            text: "Sometimes being alone is better than being taken for granted.",
+            author: ""
+        },
+         {
+            text: "Pain changes people… but it can also build them.",
+            author: ""
         }
     ];
 
