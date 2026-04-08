@@ -1,0 +1,369 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Portfolio Design System - Modern Developer Portfolio */
+
+@layer base {
+  :root {
+    /* Light Mode Colors */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 2%;
+    
+    /* Surface colors */
+    --surface: 0 0% 96%;
+    --surface-elevated: 0 0% 94%;
+    
+    /* Accent colors */
+    --accent-primary: 155 70% 50%;
+    --accent-secondary: 320 70% 60%;
+    --accent-tertiary: 190 70% 55%;
+    
+    /* Text hierarchy */
+    --text-primary: 0 0% 10%;
+    --text-secondary: 0 0% 30%;
+    --text-muted: 0 0% 50%;
+    
+    /* Interactive states */
+    --interactive-hover: 155 70% 45%;
+    --interactive-active: 155 70% 40%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(155 70% 50%), hsl(190 70% 55%));
+    --gradient-card: linear-gradient(145deg, hsl(195 70% 18%), hsl(195 70% 22%));
+    --gradient-hero: linear-gradient(135deg, hsl(155 70% 50% / 0.1), hsl(190 70% 55% / 0.1));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(0 0% 0% / 0.1);
+    --shadow-medium: 0 8px 30px hsl(0 0% 0% / 0.15);
+    --shadow-strong: 0 20px 50px hsl(0 0% 0% / 0.2);
+    
+    /* Border */
+    --border-subtle: 0 0% 88%;
+    --border: 0 0% 88%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 98%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 50%;
+
+    --accent: 0 0% 90%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 95%;
+    --ring: 0 0% 0%;
+
+    /* Override shadcn defaults for portfolio */
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 0 0% 0%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 90%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 0% 0%;
+  }
+
+  .dark {
+    /* Dark Mode Colors - Navy Blue Aesthetic (inspired by nayanbagale.me) */
+    --background: 215 30% 8%;
+    --foreground: 0 0% 95%;
+
+    /* Surface colors */
+    --surface: 215 28% 11%;
+    --surface-elevated: 215 26% 14%;
+    
+    /* Accent colors */
+    --accent-primary: 155 70% 50%;
+    --accent-secondary: 320 70% 60%;
+    --accent-tertiary: 190 70% 55%;
+    
+    /* Text hierarchy */
+    --text-primary: 0 0% 95%;
+    --text-secondary: 0 0% 70%;
+    --text-muted: 0 0% 50%;
+    
+    /* Interactive states */
+    --interactive-hover: 155 70% 45%;
+    --interactive-active: 155 70% 40%;
+
+    --card: 215 28% 11%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 215 28% 11%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 155 70% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 26% 14%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 215 24% 18%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 155 70% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 24% 18%;
+    --input: 215 26% 14%;
+    --ring: 155 70% 50%;
+    --sidebar-background: 215 30% 8%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 155 70% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 26% 14%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 215 24% 18%;
+    --sidebar-ring: 155 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  /* Portfolio Button Variants */
+  .btn-primary {
+    @apply bg-primary hover:bg-interactive-hover text-primary-foreground px-8 py-3 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply border border-border bg-transparent hover:bg-surface text-foreground px-8 py-3 rounded-xl font-medium transition-all duration-300;
+  }
+  
+  /* Text Gradients */
+  .text-gradient {
+    @apply bg-gradient-to-r from-[hsl(0_0%_0%)] to-[hsl(0_0%_30%)] bg-clip-text text-transparent;
+  }
+
+  .dark .text-gradient {
+    @apply bg-gradient-to-r from-[hsl(0_0%_100%)] to-[hsl(0_0%_70%)] bg-clip-text text-transparent;
+  }
+
+  .btn-gradient {
+    @apply bg-gradient-to-r from-[hsl(0_0%_0%)] to-[hsl(0_0%_20%)] text-white px-8 py-3 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+
+  .dark .btn-gradient {
+    @apply bg-gradient-to-r from-[hsl(0_0%_100%)] to-[hsl(0_0%_80%)] text-black px-8 py-3 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+  
+  /* Card Styles */
+  .card-portfolio {
+    @apply bg-card border border-border rounded-2xl p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-[var(--shadow-medium)];
+  }
+  
+  .card-project {
+    @apply bg-gradient-to-br from-[hsl(var(--surface))] to-[hsl(var(--surface-elevated))] border border-border rounded-2xl p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-[var(--shadow-medium)] hover:transform hover:-translate-y-1;
+  }
+  
+  /* Section Spacing */
+  .section-padding {
+    @apply py-20 px-6 max-w-7xl mx-auto;
+  }
+  
+  /* Interactive Elements */
+  .story-link {
+    @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+  
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  /* Slow Motion Animations */
+  .animate-fade-in-slow {
+    animation: fadeInSlow 1.2s ease-out;
+  }
+  
+  .animate-slide-up-slow {
+    animation: slideUpSlow 1.4s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInSlow {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  
+  @keyframes slideUpSlow {
+    from { opacity: 0; transform: translateY(60px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  
+  /* Dynamic Background */
+  .dynamic-bg {
+    background: linear-gradient(-45deg, 
+      hsl(195 70% 15%), 
+      hsl(195 75% 18%), 
+      hsl(195 65% 12%), 
+      hsl(195 70% 20%)
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 20s ease infinite;
+  }
+
+  .dark .dynamic-bg {
+    background: linear-gradient(-45deg, 
+      hsl(215 30% 8%), 
+      hsl(215 32% 10%), 
+      hsl(212 28% 6%), 
+      hsl(215 30% 12%)
+    );
+    background-size: 400% 400%;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Floating Elements */
+  .floating-element {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-element:nth-child(1) {
+    top: 20%;
+    left: 20%;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, hsl(0 70% 35% / 0.4), hsl(15 80% 40% / 0.3));
+    animation-delay: 0s;
+  }
+
+  .floating-element:nth-child(2) {
+    top: 60%;
+    right: 20%;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(45deg, hsl(25 85% 40% / 0.4), hsl(35 90% 45% / 0.3));
+    animation-delay: -2s;
+  }
+
+  .floating-element:nth-child(3) {
+    bottom: 30%;
+    left: 30%;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, hsl(280 60% 35% / 0.4), hsl(320 70% 40% / 0.3));
+    animation-delay: -4s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-20px) rotate(120deg); }
+    66% { transform: translateY(10px) rotate(240deg); }
+  }
+
+  /* Scroll Reveal Animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Section Transitions */
+  .section-transition {
+    position: relative;
+    background: linear-gradient(180deg, transparent 0%, hsl(var(--background)) 20%, hsl(var(--background)) 80%, transparent 100%);
+  }
+
+  /* Glass Effect Sections */
+  .section-glass {
+    position: relative;
+    background: linear-gradient(180deg, 
+      hsl(var(--background) / 0.8) 0%, 
+      hsl(var(--surface) / 0.9) 50%, 
+      hsl(var(--background) / 0.8) 100%
+    );
+    backdrop-filter: blur(10px);
+    border-top: 1px solid hsl(var(--border) / 0.3);
+    border-bottom: 1px solid hsl(var(--border) / 0.3);
+  }
+
+  /* Parallax Container */
+  .parallax-container {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  /* Grid patterns */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsl(var(--border) / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+}
